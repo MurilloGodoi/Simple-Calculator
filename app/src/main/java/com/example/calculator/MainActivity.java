@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ed1.setText(ed1.getText()+"8");
+                
             }
         });
 
