@@ -14,8 +14,6 @@ public class MainActivity extends AppCompatActivity {
     EditText ed1;
     float convert_valor, result;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btn_point.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -136,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 ed1.setSelection(ed1.getText().length());
                  }
         });
+
         btn_convert.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -146,8 +146,6 @@ public class MainActivity extends AppCompatActivity {
                     txtresult.setText(null);
                     ed1.setText(String.valueOf(result));
                 }
-
-
         }});
     }
 }
