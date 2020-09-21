@@ -4,14 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_0, btn_point, btn_convert, btn_reset;
+    TextView txtresult;
     EditText ed1;
-    float convert_valor;
-    boolean decimal;
+    float convert_valor, result;
+
 
 
     @Override
@@ -32,12 +34,15 @@ public class MainActivity extends AppCompatActivity {
         btn_point = (Button) findViewById(R.id.btn_point);
         btn_convert = (Button) findViewById(R.id.btn_convert);
         btn_reset = (Button) findViewById(R.id.btn_reset);
+        txtresult = (TextView) findViewById(R.id.txtResult);
         ed1 = (EditText) findViewById(R.id.edText1);
+
 
         btn_0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ed1.setText(ed1.getText()+"0");
+                ed1.setText(ed1.getText() + "0");
+                ed1.setSelection(ed1.getText().length());
             }
         });
 
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 ed1.setText(ed1.getText() + "1");
+                ed1.setSelection(ed1.getText().length());
             }
         });
 
@@ -53,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ed1.setText(ed1.getText() + "2");
+                ed1.setSelection(ed1.getText().length());
             }
         });
 
@@ -60,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ed1.setText(ed1.getText() + "3");
+                ed1.setSelection(ed1.getText().length());
             }
         });
 
@@ -67,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ed1.setText(ed1.getText() + "4");
+                ed1.setSelection(ed1.getText().length());
             }
         });
 
@@ -74,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ed1.setText(ed1.getText() + "5");
+                ed1.setSelection(ed1.getText().length());
             }
         });
 
@@ -81,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ed1.setText(ed1.getText() + "6");
+                ed1.setSelection(ed1.getText().length());
             }
         });
 
@@ -88,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ed1.setText(ed1.getText() + "7");
+                ed1.setSelection(ed1.getText().length());
             }
         });
 
@@ -95,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ed1.setText(ed1.getText() + "8");
+                ed1.setSelection(ed1.getText().length());
 
             }
         });
@@ -102,34 +115,36 @@ public class MainActivity extends AppCompatActivity {
         btn_9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ed1.setText("9");
+                ed1.setText(ed1.getText() + "9");
+                ed1.setSelection(ed1.getText().length());
             }
 
         });
+
         btn_reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ed1.setText("");
-                convert_valor = 0;
+                txtresult.setText(null);
+                ed1.setText(null);
+
             }
         });
         btn_point.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(decimal){
-
-                }else{
-                        ed1.setText(ed1.getText() + ".");
-                        decimal = true;
-            } }
+                ed1.setText(ed1.getText() + ".");
+                ed1.setSelection(ed1.getText().length());
+                 }
         });
         btn_convert.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 if(ed1.getText().length() != 0) {
 
-                    convert_valor = Float.parseFloat(ed1.getText() + " ");
-                    ed1.setText(convert_valor/5.28 + " ");
+                    convert_valor = Float.parseFloat(ed1.getText().toString());
+                    result = (float) (convert_valor/5.42);
+                    txtresult.setText(null);
+                    ed1.setText(String.valueOf(result));
                 }
 
 

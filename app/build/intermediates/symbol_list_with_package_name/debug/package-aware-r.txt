@@ -1059,6 +1059,7 @@ id topPanel
 id transitionToEnd
 id transitionToStart
 id triangle
+id txtResult
 id unchecked
 id uniform
 id up
